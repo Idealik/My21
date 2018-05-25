@@ -17,23 +17,32 @@ namespace MyGame21
             InitializeComponent();
         }
 
-          
+        Game game;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Game game = new Game();
-            LB_ComputerMoney.Text = "Money = " + game.GetComputerMoney().ToString();
-            LB_YourMoney.Text = "Money = " + game.GetPlayerMoney().ToString();
+           
         }
 
         private void BT_TakeMore_Click(object sender, EventArgs e)
         {
-
+            game.Play();
+            LB_ComputerMoney.Text = "Money = " + game.GetComputerMoney().ToString();
+            LB_YourMoney.Text = "Money = " + game.GetPlayerMoney().ToString();
+            LB_MyScore.Text = "My score = " + game.player_Score;
+            LB_ComputerScore.Text = "My score = " + game.comuter_score;
         }
 
         private void BT_StopGame_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BT_CreateGame_Click(object sender, EventArgs e)
+        {
+             game = new Game();
+            LB_ComputerMoney.Text = "Money = " + game.GetComputerMoney().ToString();
+            LB_YourMoney.Text = "Money = " + game.GetPlayerMoney().ToString();
         }
     }
 }

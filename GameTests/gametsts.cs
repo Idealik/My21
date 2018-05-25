@@ -5,7 +5,7 @@ using MyGame21;
 namespace GameTests
 {
     [TestClass]
-    public class UnitTest1
+    public class gametsts
     {
         [TestMethod]
         public void Player_GetDefaulMoney_OneHundr()
@@ -30,7 +30,7 @@ namespace GameTests
 
         public void Player_TakeCard_ScoreFive()
         {
-
+            
         }
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyGame21
 {
-     public class Player
+    class Computer
     {
         public int score_card;
 
@@ -20,8 +20,5 @@ namespace MyGame21
 
             return score_card;
         }
-
-
-
     }
 }

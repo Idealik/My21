@@ -35,6 +35,7 @@
             this.BT_StopGame = new System.Windows.Forms.Button();
             this.LB_YourMoney = new System.Windows.Forms.Label();
             this.LB_ComputerMoney = new System.Windows.Forms.Label();
+            this.BT_CreateGame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BT_TakeMore
@@ -107,11 +108,22 @@
             this.LB_ComputerMoney.TabIndex = 6;
             this.LB_ComputerMoney.Text = "Money=";
             // 
+            // BT_CreateGame
+            // 
+            this.BT_CreateGame.Location = new System.Drawing.Point(12, 218);
+            this.BT_CreateGame.Name = "BT_CreateGame";
+            this.BT_CreateGame.Size = new System.Drawing.Size(212, 23);
+            this.BT_CreateGame.TabIndex = 7;
+            this.BT_CreateGame.Text = "New Game";
+            this.BT_CreateGame.UseVisualStyleBackColor = true;
+            this.BT_CreateGame.Click += new System.EventHandler(this.BT_CreateGame_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 493);
+            this.Controls.Add(this.BT_CreateGame);
             this.Controls.Add(this.LB_ComputerMoney);
             this.Controls.Add(this.LB_YourMoney);
             this.Controls.Add(this.BT_StopGame);
@@ -136,6 +148,7 @@
         private System.Windows.Forms.Button BT_StopGame;
         private System.Windows.Forms.Label LB_YourMoney;
         private System.Windows.Forms.Label LB_ComputerMoney;
+        private System.Windows.Forms.Button BT_CreateGame;
     }
 }
 
