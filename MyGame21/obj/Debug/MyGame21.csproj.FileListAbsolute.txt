@@ -1,0 +1,10 @@
+E:\MyProject\MyGame21\MyGame21\bin\Debug\MyGame21.exe.config
+E:\MyProject\MyGame21\MyGame21\bin\Debug\MyGame21.exe
+E:\MyProject\MyGame21\MyGame21\bin\Debug\MyGame21.pdb
+E:\MyProject\MyGame21\MyGame21\obj\Debug\MyGame21.csprojResolveAssemblyReference.cache
+E:\MyProject\MyGame21\MyGame21\obj\Debug\MyGame21.Form1.resources
+E:\MyProject\MyGame21\MyGame21\obj\Debug\MyGame21.Properties.Resources.resources
+E:\MyProject\MyGame21\MyGame21\obj\Debug\MyGame21.csproj.GenerateResource.Cache
+E:\MyProject\MyGame21\MyGame21\obj\Debug\MyGame21.csproj.CoreCompileInputs.cache
+E:\MyProject\MyGame21\MyGame21\obj\Debug\MyGame21.exe
+E:\MyProject\MyGame21\MyGame21\obj\Debug\MyGame21.pdb
