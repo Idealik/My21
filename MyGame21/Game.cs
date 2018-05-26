@@ -59,7 +59,6 @@ namespace MyGame21
 
             if((player_Score>21) || (comuter_score > 21))
             {
-                player_Score = 0; comuter_score = 0;
                 return false;
             }
 
@@ -70,6 +69,31 @@ namespace MyGame21
         {
             if (player_Score > 21) return true;
             else return false;
+        }
+
+
+        //When push Stop Game
+        public void StopGame()
+        {
+            if (PlayerWin())
+            {
+                bank.player_Money += 10;
+                bank.computer_Money -= 10;
+            }
+            else
+            {
+                bank.player_Money -= 10;
+                bank.computer_Money += 10;
+            }
+            comuter_score = 0; player_Score = 0;
+        }
+
+
+        public bool PlayerWin()
+        {
+            if (player_Score > comuter_score) return true;
+            else  return false;
+
         }
       
     }
