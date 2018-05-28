@@ -21,6 +21,7 @@ namespace MyGame21
                 }
             }
             else score_card = 0; 
+
             return score_card;
         }
 
@@ -34,9 +35,10 @@ namespace MyGame21
                 {
                     return true;
                 }
-                else { return false; }
-                
+                else { return false; }              
             }
+
+            return true;
         }
 
         private bool TrueCheckChance(int score, Random rnd)
@@ -47,13 +49,14 @@ namespace MyGame21
 
             while (count != 10)
             {
+                count++;
                 double CheckNumber = rnd.Next(1000);
-
 
                 if (score == 12)
                 {
+
                     //  шасн что 8 карт будет норм, 1 не очень
-                    double chance = 8 / 9 * 1000;
+                    double chance =  8 / 9 * 1000;
 
                     if (CheckNumber > Math.Round(chance))
                     {
@@ -186,7 +189,6 @@ namespace MyGame21
                     }
                     continue;
                 }
-                count++;
             }
 
             if (myAgainst > myFor)  return false; 
