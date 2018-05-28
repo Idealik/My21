@@ -14,6 +14,7 @@ namespace MyGame21
         Computer computer = new Computer();
         public int player_Score = 0,  comuter_score = 0;
         int bet = 10; // later you can change it 
+        bool firstTwoCard = true;
 
         public int GetPlayerMoney()
         {
@@ -27,8 +28,18 @@ namespace MyGame21
 
         public void Play()
         {
+
+            if (firstTwoCard)
+            {
+                MethodForFirstTwoCard();
+                firstTwoCard = false;
+            }
+
             player.Take_Card(rnd);
             computer.Take_Card(rnd);
+
+            player_Score += player.score_card;
+            comuter_score += computer.score_card;
 
             if (!CheckScore())
             {    // if score > 21
@@ -51,12 +62,18 @@ namespace MyGame21
             }
         }
 
-        public bool CheckScore()
+
+        public void MethodForFirstTwoCard()
         {
+            player.Take_Card(rnd);
+            computer.Take_Card(rnd);
 
             player_Score += player.score_card;
             comuter_score += computer.score_card;
+        }
 
+        public bool CheckScore()
+        {           
             if((player_Score>21) || (comuter_score > 21))
             {
                 return false;
@@ -75,6 +92,8 @@ namespace MyGame21
         //When push Stop Game
         public void StopGame()
         {
+            firstTwoCard = true;
+
             if (PlayerWin())
             {
                 bank.player_Money += 10;
@@ -85,6 +104,7 @@ namespace MyGame21
                 bank.player_Money -= 10;
                 bank.computer_Money += 10;
             }
+
             comuter_score = 0; player_Score = 0;
         }
 
