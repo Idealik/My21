@@ -46,19 +46,18 @@ namespace MyGame21
             int myFor = 0;
             int myAgainst = 0;
             int count = 0;
+            double chance;
 
             while (count != 10)
             {
                 count++;
                 double CheckNumber = rnd.Next(1000);
-
                 if (score == 12)
                 {
-
                     //  шасн что 8 карт будет норм, 1 не очень
-                    double chance =  8 / 9 * 1000;
+                     chance =  889;
 
-                    if (CheckNumber > Math.Round(chance))
+                    if (CheckNumber > chance)
                     {
                         myAgainst++;
                     }
@@ -69,12 +68,11 @@ namespace MyGame21
                     continue;
                 }
 
-
                 if (score == 13)
                 {
-                    double chance = 7 / 9 * 1000;
+                     chance = 778;
 
-                    if (CheckNumber > Math.Round(chance))
+                    if (CheckNumber > chance)
                     {
                         myAgainst++;
                     }
@@ -87,9 +85,9 @@ namespace MyGame21
 
                 if (score == 14)
                 {
-                    double chance = 6 / 9 * 1000;
+                     chance = 667;
 
-                    if (CheckNumber > Math.Round(chance))
+                    if (CheckNumber > chance)
                     {
                         myAgainst++;
                     }
@@ -102,9 +100,9 @@ namespace MyGame21
 
                 if (score == 15)
                 {
-                    double chance = 5 / 9 * 1000;
+                     chance = 556;
 
-                    if (CheckNumber > Math.Round(chance))
+                    if (CheckNumber > chance)
                     {
                         myAgainst++;
                     }
@@ -117,9 +115,9 @@ namespace MyGame21
 
                 if (score == 16)
                 {
-                    double chance = 4 / 9 * 1000;
+                     chance = 555;
 
-                    if (CheckNumber > Math.Round(chance))
+                    if (CheckNumber > chance)
                     {
                         myAgainst++;
                     }
@@ -132,9 +130,9 @@ namespace MyGame21
 
                 if (score == 17)
                 {
-                    double chance = 4 / 9 * 1000;
+                     chance = 443;
 
-                    if (CheckNumber > Math.Round(chance))
+                    if (CheckNumber > chance)
                     {
                         myAgainst++;
                     }
@@ -147,9 +145,9 @@ namespace MyGame21
 
                 if (score == 18)
                 {
-                    double chance = 3 / 9 * 1000;
+                     chance = 332;
 
-                    if (CheckNumber > Math.Round(chance))
+                    if (CheckNumber > chance)
                     {
                         myAgainst++;
                     }
@@ -162,9 +160,9 @@ namespace MyGame21
 
                 if (score == 19)
                 {
-                    double chance = 2 / 9 * 1000;
+                     chance = 221;
 
-                    if (CheckNumber > Math.Round(chance))
+                    if (CheckNumber > chance)
                     {
                         myAgainst++;
                     }
@@ -177,9 +175,9 @@ namespace MyGame21
 
                 if (score == 20)
                 {
-                    double chance = 1 / 9 * 1000;
+                     chance =  110;
 
-                    if (CheckNumber > Math.Round(chance))
+                    if (CheckNumber > chance)
                     {
                         myAgainst++;
                     }

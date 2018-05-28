@@ -14,7 +14,7 @@ namespace MyGame21
         Computer computer = new Computer();
         public int player_Score = 0,  computer_score = 0;
         int bet = 10; // later you can change it 
-        bool firstTwoCard = true;
+        bool firstTwoCard = true, compDontStop = true;
 
         public int GetPlayerMoney()
         {
@@ -35,11 +35,15 @@ namespace MyGame21
                 firstTwoCard = false;
             }
 
-            player.Take_Card(rnd);
-            computer.Take_Card(rnd, computer_score);
-
+            player.Take_Card(rnd);           
             player_Score += player.score_card;
-            computer_score += computer.score_card;
+
+            int tmp = computer.Take_Card(rnd, computer_score);
+            if (tmp == 0) compDontStop = false;
+            if (compDontStop)
+            {
+                computer_score += tmp;
+            }
 
             if (!CheckScore())
             {    // if score > 21
@@ -54,7 +58,7 @@ namespace MyGame21
                     bank.computer_Money -= 10;
                 }
 
-                computer_score = 0; player_Score = 0;
+                NewPartForNumbers();
             }
             else
             {
@@ -67,6 +71,7 @@ namespace MyGame21
         {
             player.Take_Card(rnd);
             computer.Take_Card(rnd, computer_score);
+
 
             player_Score += player.score_card;
             computer_score += computer.score_card;
@@ -105,9 +110,14 @@ namespace MyGame21
                 bank.computer_Money += 10;
             }
 
-            computer_score = 0; player_Score = 0;
+            NewPartForNumbers();
         }
 
+        public void NewPartForNumbers()
+        {
+            compDontStop = true;
+            computer_score = 0; player_Score = 0;
+        }
 
         public bool PlayerWin()
         {

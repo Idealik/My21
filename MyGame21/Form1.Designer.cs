@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.BT_TakeMore = new System.Windows.Forms.Button();
             this.LB_MyScore = new System.Windows.Forms.Label();
             this.LB_ComputerScore = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.LB_YourMoney = new System.Windows.Forms.Label();
             this.LB_ComputerMoney = new System.Windows.Forms.Label();
             this.BT_CreateGame = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // BT_TakeMore
@@ -118,13 +120,18 @@
             this.BT_CreateGame.Cursor = System.Windows.Forms.Cursors.Default;
             this.BT_CreateGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BT_CreateGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BT_CreateGame.Location = new System.Drawing.Point(12, 194);
+            this.BT_CreateGame.Location = new System.Drawing.Point(15, 225);
             this.BT_CreateGame.Name = "BT_CreateGame";
-            this.BT_CreateGame.Size = new System.Drawing.Size(184, 50);
+            this.BT_CreateGame.Size = new System.Drawing.Size(180, 50);
             this.BT_CreateGame.TabIndex = 7;
             this.BT_CreateGame.Text = "New Game";
             this.BT_CreateGame.UseVisualStyleBackColor = false;
             this.BT_CreateGame.Click += new System.EventHandler(this.BT_CreateGame_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -158,6 +165,7 @@
         private System.Windows.Forms.Label LB_YourMoney;
         private System.Windows.Forms.Label LB_ComputerMoney;
         private System.Windows.Forms.Button BT_CreateGame;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

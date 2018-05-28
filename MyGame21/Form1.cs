@@ -21,7 +21,8 @@ namespace MyGame21
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            game = new Game();
+            myInterface();
         }
 
         private void BT_TakeMore_Click(object sender, EventArgs e)
@@ -40,6 +41,7 @@ namespace MyGame21
         {
             game = new Game();
             myInterface();
+            timer1.Enabled = true;
         }
 
         public void myInterface()
@@ -50,5 +52,10 @@ namespace MyGame21
             LB_ComputerScore.Text = "Comp score = " + game.computer_score;
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+
+        }
     }
 }
