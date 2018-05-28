@@ -47,7 +47,7 @@ namespace MyGame21
             LB_ComputerMoney.Text = "Money = " + game.GetComputerMoney().ToString();
             LB_YourMoney.Text = "Money = " + game.GetPlayerMoney().ToString();
             LB_MyScore.Text = "My score = " + game.player_Score;
-            LB_ComputerScore.Text = "Comp score = " + game.comuter_score;
+            LB_ComputerScore.Text = "Comp score = " + game.computer_score;
         }
 
     }

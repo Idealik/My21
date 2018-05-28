@@ -12,7 +12,7 @@ namespace MyGame21
         Player player = new Player();
         Bank bank = new Bank();
         Computer computer = new Computer();
-        public int player_Score = 0,  comuter_score = 0;
+        public int player_Score = 0,  computer_score = 0;
         int bet = 10; // later you can change it 
         bool firstTwoCard = true;
 
@@ -36,10 +36,10 @@ namespace MyGame21
             }
 
             player.Take_Card(rnd);
-            computer.Take_Card(rnd);
+            computer.Take_Card(rnd, computer_score);
 
             player_Score += player.score_card;
-            comuter_score += computer.score_card;
+            computer_score += computer.score_card;
 
             if (!CheckScore())
             {    // if score > 21
@@ -54,7 +54,7 @@ namespace MyGame21
                     bank.computer_Money -= 10;
                 }
 
-                comuter_score = 0; player_Score = 0;
+                computer_score = 0; player_Score = 0;
             }
             else
             {
@@ -66,15 +66,15 @@ namespace MyGame21
         public void MethodForFirstTwoCard()
         {
             player.Take_Card(rnd);
-            computer.Take_Card(rnd);
+            computer.Take_Card(rnd, computer_score);
 
             player_Score += player.score_card;
-            comuter_score += computer.score_card;
+            computer_score += computer.score_card;
         }
 
         public bool CheckScore()
         {           
-            if((player_Score>21) || (comuter_score > 21))
+            if((player_Score>21) || (computer_score > 21))
             {
                 return false;
             }
@@ -105,13 +105,13 @@ namespace MyGame21
                 bank.computer_Money += 10;
             }
 
-            comuter_score = 0; player_Score = 0;
+            computer_score = 0; player_Score = 0;
         }
 
 
         public bool PlayerWin()
         {
-            if (player_Score > comuter_score) return true;
+            if (player_Score > computer_score) return true;
             else  return false;
 
         }
