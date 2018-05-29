@@ -33,7 +33,10 @@ namespace MyGame21
 
         private void BT_StopGame_Click(object sender, EventArgs e)
         {
-            game.StopGame();
+            if (!game.StopGame())
+            {
+                MessageBox.Show("Ничья");
+            }
             myInterface();
         }
 
@@ -49,13 +52,10 @@ namespace MyGame21
             LB_ComputerMoney.Text = "Money = " + game.GetComputerMoney().ToString();
             LB_YourMoney.Text = "Money = " + game.GetPlayerMoney().ToString();
             LB_MyScore.Text = "My score = " + game.player_Score;
-            LB_ComputerScore.Text = "Comp score = " + game.computer_score;
+            LB_ComputerScore.Text = "His score = " + game.computer_score;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
-           
-
-        }
+        {}
     }
 }

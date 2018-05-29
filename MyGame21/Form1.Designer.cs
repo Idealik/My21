@@ -56,7 +56,7 @@
             // 
             this.LB_MyScore.AutoSize = true;
             this.LB_MyScore.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LB_MyScore.Location = new System.Drawing.Point(400, 450);
+            this.LB_MyScore.Location = new System.Drawing.Point(340, 370);
             this.LB_MyScore.Name = "LB_MyScore";
             this.LB_MyScore.Size = new System.Drawing.Size(61, 24);
             this.LB_MyScore.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             this.LB_ComputerScore.AutoSize = true;
             this.LB_ComputerScore.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LB_ComputerScore.Location = new System.Drawing.Point(400, 50);
+            this.LB_ComputerScore.Location = new System.Drawing.Point(340, 86);
             this.LB_ComputerScore.Name = "LB_ComputerScore";
             this.LB_ComputerScore.Size = new System.Drawing.Size(61, 24);
             this.LB_ComputerScore.TabIndex = 2;

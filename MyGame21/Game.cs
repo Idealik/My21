@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyGame21
 {
@@ -60,10 +56,6 @@ namespace MyGame21
 
                 NewPartForNumbers();
             }
-            else
-            {
-
-            }
         }
 
 
@@ -95,11 +87,18 @@ namespace MyGame21
 
 
         //When push Stop Game
-        public void StopGame()
+        public bool StopGame()
         {
             firstTwoCard = true;
 
-            if (PlayerWin())
+            if(computer_score == player_Score)
+            {
+                //ничья
+                NewPartForNumbers();
+                return false;
+            }
+
+            if (PlayerWin() )
             {
                 bank.player_Money += 10;
                 bank.computer_Money -= 10;
@@ -111,6 +110,7 @@ namespace MyGame21
             }
 
             NewPartForNumbers();
+            return true;
         }
 
         public void NewPartForNumbers()
