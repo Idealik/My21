@@ -24,6 +24,7 @@ namespace MyGame21
 
         public void Play()
         {
+            
 
             if (firstTwoCard)
             {
@@ -36,6 +37,21 @@ namespace MyGame21
 
             int tmp = computer.Take_Card(rnd, computer_score);
             if (tmp == 0) compDontStop = false;
+
+            if (player.IsItWin())
+            {
+                PlayerGatMoney();
+                NewPartForNumbers();
+                return;
+            }
+
+            if (computer.IsItWin())
+            {
+                ComputerGetMoney();
+                NewPartForNumbers();
+                return;
+            }
+
             if (compDontStop)
             {
                 computer_score += tmp;
@@ -45,13 +61,11 @@ namespace MyGame21
             {    // if score > 21
                 if (Loser())
                 {
-                    bank.player_Money -= 10;
-                    bank.computer_Money += 10;
+                    ComputerGetMoney();
                 }
                 else
                 {
-                    bank.player_Money += 10;
-                    bank.computer_Money -= 10;
+                    PlayerGatMoney();
                 }
 
                 NewPartForNumbers();
@@ -63,7 +77,6 @@ namespace MyGame21
         {
             player.Take_Card(rnd);
             computer.Take_Card(rnd, computer_score);
-
 
             player_Score += player.score_card;
             computer_score += computer.score_card;
@@ -100,13 +113,11 @@ namespace MyGame21
 
             if (PlayerWin() )
             {
-                bank.player_Money += 10;
-                bank.computer_Money -= 10;
+                PlayerGatMoney();
             }
             else
             {
-                bank.player_Money -= 10;
-                bank.computer_Money += 10;
+                ComputerGetMoney();
             }
 
             NewPartForNumbers();
@@ -115,6 +126,8 @@ namespace MyGame21
 
         public void NewPartForNumbers()
         {
+            player.CreateNewColoda();
+            computer.CreateNewColoda();
             compDontStop = true;
             computer_score = 0; player_Score = 0;
         }
@@ -123,8 +136,20 @@ namespace MyGame21
         {
             if (player_Score > computer_score) return true;
             else  return false;
-
         }
+
+        public void PlayerGatMoney()
+        {
+            bank.player_Money += bet;
+            bank.computer_Money -= bet;
+        }
+
+        public void ComputerGetMoney()
+        {
+            bank.player_Money -= bet;
+            bank.computer_Money += bet;
+        }
+
       
     }
 }

@@ -9,6 +9,8 @@ namespace MyGame21
     class Computer
     {
         public int score_card;
+        int[] myColoda = new int[22];
+        int positionOnColoda = 0;
 
         public int Take_Card(Random rnd, int computer_score)
         {
@@ -20,9 +22,16 @@ namespace MyGame21
                     score_card = rnd.Next(1, 11);
                 }
             }
-            else score_card = 0; 
+            else score_card = 0;
 
+            AddInColoda(score_card);
             return score_card;
+        }
+
+        public bool IsItWin()
+        {
+            if ((myColoda[0] == myColoda[1]) && (myColoda[0] == 1)) return true;
+            else return false;
         }
 
         private bool ThinkAboutResult(int computer_score, Random rnd)
@@ -191,6 +200,19 @@ namespace MyGame21
 
             if (myAgainst > myFor)  return false; 
             else return true;
+        }
+
+        public int[] AddInColoda(int scoreOfCard)
+        {
+            myColoda[positionOnColoda] = scoreOfCard;
+            positionOnColoda++;
+
+            return myColoda;
+        }
+
+        public void CreateNewColoda()
+        {
+            positionOnColoda = 0;
         }
 
     }
