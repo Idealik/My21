@@ -9,8 +9,9 @@ namespace MyGame21
         Bank bank = new Bank();
         Computer computer = new Computer();
         public int player_Score = 0,  computer_score = 0;
-        int bet = 10; // later you can change it 
+        int bet = 1; // later you can change it 
         bool firstTwoCard = true, compDontStop = true;
+
 
         public int GetPlayerMoney()
         {
@@ -22,53 +23,70 @@ namespace MyGame21
             return bank.computer_Money;
         }
 
-        public void Play()
+        public int Play(int _bet) // сделать инт, если 0 то не победа, 1 победа игрока, 2 победа пк, 3 для анблока ставки
         {
-            
-
-            if (firstTwoCard)
+            if (CheckBank())
             {
-                MethodForFirstTwoCard();
-                firstTwoCard = false;
-            }
 
-            player.Take_Card(rnd);           
-            player_Score += player.score_card;
+                bet = _bet;
 
-            int tmp = computer.Take_Card(rnd, computer_score);
-            if (tmp == 0) compDontStop = false;
-
-            if (player.IsItWin())
-            {
-                PlayerGatMoney();
-                NewPartForNumbers();
-                return;
-            }
-
-            if (computer.IsItWin())
-            {
-                ComputerGetMoney();
-                NewPartForNumbers();
-                return;
-            }
-
-            if (compDontStop)
-            {
-                computer_score += tmp;
-            }
-
-            if (!CheckScore())
-            {    // if score > 21
-                if (Loser())
+                if (firstTwoCard)
                 {
-                    ComputerGetMoney();
+                    MethodForFirstTwoCard();
+                    firstTwoCard = false;
                 }
-                else
+
+                player.Take_Card(rnd);
+                player_Score += player.score_card;
+
+                int tmp = computer.Take_Card(rnd, computer_score);
+                if (tmp == 0) compDontStop = false;
+
+                if (player.IsItWin()) // метод на проверку 2х тузов
                 {
                     PlayerGatMoney();
+                    NewPartForNumbers(); 
+                    return 3 ;
                 }
 
-                NewPartForNumbers();
+                if (computer.IsItWin()) // метод на проверку 2х тузов
+                {
+                    ComputerGetMoney();
+                    NewPartForNumbers();
+                    return 3;
+                }
+
+                if (compDontStop)
+                {
+                    computer_score += tmp;
+                }
+
+                if (!CheckScore())
+                {    // if score > 21
+                    if (Loser())
+                    {
+                        ComputerGetMoney();                   
+                    }
+                    else
+                    {
+                        PlayerGatMoney();              
+                    }
+
+                    NewPartForNumbers();
+                    return 3;
+                }
+                return 0;
+            }
+            else
+            {
+                if (Winner()) //player win 
+                {
+                    return 1;
+                }
+                else // comp win
+                {
+                    return 2;
+                }
             }
         }
 
@@ -132,24 +150,41 @@ namespace MyGame21
             computer_score = 0; player_Score = 0;
         }
 
-        public bool PlayerWin()
+        private bool PlayerWin()
         {
             if (player_Score > computer_score) return true;
             else  return false;
         }
 
-        public void PlayerGatMoney()
+        private void PlayerGatMoney()
         {
             bank.player_Money += bet;
             bank.computer_Money -= bet;
         }
 
-        public void ComputerGetMoney()
+        private void ComputerGetMoney()
         {
             bank.player_Money -= bet;
             bank.computer_Money += bet;
         }
 
+        private bool CheckBank()
+        {
+            if ((bank.player_Money > 0) && (bank.computer_Money > 0))
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public bool Winner() // true  - player; false - computer
+        {
+            if (bank.player_Money < 0)
+            {
+                return false;
+            }
+            else return true;
+        }
       
     }
 }
